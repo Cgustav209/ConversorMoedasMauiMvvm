@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConversorMoedasMauiMvvm.MainPage"
+             Title="Conversor de Moedas">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="Conversor de Moedas" FontSize="24" FontAttributes="Bold"/> <!--// Título da página-->
+            <Entry Placeholder="Valor" Keyboard="Numeric" Text="{Binding AmountText, Mode=TwoWay}"/> <!--// Campo de entrada para o valor a ser convertido-->
+            <Grid ColumnDefinitions="*,Auto,*" ColumnSpacing="8"><!--// Grade para organizar os seletores de moeda e o botão de inverter-->
+
+                <Picker Grid.Column="0" Title="De" ItemsSource="{Binding Currencies}" SelectedItem="{Binding From, Mode=TwoWay}"/> <!--// Seletor para a moeda de origem-->
+
+                <Button Grid.Column="1" Text="Inverter" Command="{Binding SwapCommand}"/> <!--// Botão para inverter as moedas selecionadas-->
+
+                <Picker Grid.Column="2" Title="Para" ItemsSource="{Binding Currencies}" SelectedItem="{Binding To, Mode=TwoWay}"/> <!--// Seletor para a moeda de destino-->
+            </Grid>
+            <Button Text="Converter" Command="{Binding ConvertCommand}"/> <!--// Botão para executar a conversão-->
+
+            <Button Text="Limpar Command=" Command="{Binding ClearComaand}"/> <!--// Botão para limpar os campos-->
+
+            <Frame Padding="16" HasShadow="False">   <!--/ Quadro para exibir o resultado da conversão-->
+
+                <Label Text="{Binding Result}" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center"/> <!--// Label para mostrar o resultado da conversão-->
+
+            </Frame>
+
+        </VerticalStackLayout> 
+      
+    </ScrollView>
+
+</ContentPage>
