@@ -9,9 +9,6 @@ using System.Windows.Input;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
-{
-    
-}
 
 namespace ConversorMoedasMauiMvvm.ViewModels
 {
